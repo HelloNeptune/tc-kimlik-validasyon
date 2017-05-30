@@ -1,0 +1,31 @@
+{
+  "name": "tc-kimlik-validasyon",
+  "version": "1.0.0",
+  "description": "TC Kimlik numarası validasyonu icin kullanilir.",
+  "main": "src/tckvalid.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HelloNeptune/tc-kimlik-validasyon.git"
+  },
+  "keywords": [
+    "TC",
+    "kimlik",
+    "validasyon",
+    "validasyon",
+    "TC",
+    "TC",
+    "kimlik"
+  ],
+  "author": "Ahmet Burak Abdikoglu <ahmet.burak10@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HelloNeptune/tc-kimlik-validasyon/issues"
+  },
+  "homepage": "https://github.com/HelloNeptune/tc-kimlik-validasyon#readme"
+}
