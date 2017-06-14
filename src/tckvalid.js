@@ -17,14 +17,36 @@
         return this.test();
     };
 
+    
+    Factory.prototype.helpers = {
+
+        /**
+         * 
+         * @desc
+         * @param index {number}
+         */
+        charAt: function( index ) {
+            return ( Factory.prototype.tc + "" ).charAt( index );
+        }
+    };
+
     /**
      * 
      * @desc this method will testing "tck" algorithm
      * with a given tck number
+     * @returns {number}
      */
     Factory.prototype.test = function() {
 
-        return true;
+        var charAt = this.helpers.charAt
+          , valid = true;
+
+        // Check first number for zero
+        // #
+        if( charAt( 0 ) == "0" )
+            valid = false;
+        
+        return valid;
     };
 
     /**
