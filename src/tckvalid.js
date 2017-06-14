@@ -6,7 +6,7 @@
 !(function( window, String, undefined )
 {
     "use strict";
-
+ 
     /**
      *
      * @constructor
@@ -26,7 +26,6 @@
      * Proto factory method
      */
     function Proto_tcValid() {
-
         Factory.call( Factory, this );
     }
 
