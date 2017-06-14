@@ -18,6 +18,10 @@
     };
 
     
+    /**
+     * @method charAt: returns char from desired
+     * index in string
+     */
     Factory.prototype.helpers = {
 
         /**
