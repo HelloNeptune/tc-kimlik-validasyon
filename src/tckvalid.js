@@ -17,6 +17,11 @@
         return this.test();
     };
 
+    /**
+     * 
+     * @desc this method will testing "tck" algorithm
+     * with a given tck number
+     */
     Factory.prototype.test = function() {
 
         return true;
