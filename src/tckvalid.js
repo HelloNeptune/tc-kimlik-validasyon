@@ -14,19 +14,19 @@
     function Factory( tc ) {
 
         this.tc = tc;
-        console.log(this);
+        return this.test();
     };
 
     Factory.prototype.test = function() {
 
-        console.log( this.tc );
+        return true;
     };
 
     /**
      * Proto factory method
      */
     function Proto_tcValid() {
-        Factory.call( Factory, this );
+        return Factory.call( Factory.prototype, this );
     }
 
     // Apply factory to string proto
