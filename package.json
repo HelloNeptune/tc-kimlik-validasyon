@@ -27,5 +27,9 @@
   "bugs": {
     "url": "https://github.com/HelloNeptune/tc-kimlik-validasyon/issues"
   },
-  "homepage": "https://github.com/HelloNeptune/tc-kimlik-validasyon#readme"
+  "homepage": "https://github.com/HelloNeptune/tc-kimlik-validasyon#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-server-livereload": "^1.9.2"
+  }
 }
