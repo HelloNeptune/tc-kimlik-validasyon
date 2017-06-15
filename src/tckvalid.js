@@ -61,7 +61,7 @@
 
         // Check eleventh char
         // #
-        charAt11 = this.checkAt11( charAt10 );
+        charAt11 = this.checkAt11( charAt10.val );
         
         if( !charAt11 )
             return false;
@@ -73,12 +73,12 @@
      * @desc
      * @returns {object}
      * object.fail: {Boolean}
-     * object.char: {String}
+     * object.val: {String}
      */
     Factory.prototype.checkAt10 = function() {
         return {
             fail: false,
-            char: null
+            val: null
         }
     };
 
