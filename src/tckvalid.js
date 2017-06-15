@@ -31,6 +31,16 @@
          */
         charAt: function( index ) {
             return ( Factory.prototype.tc + "" ).charAt( index );
+        },
+
+        
+        /**
+         * 
+         * @desc
+         * @param index {String}
+         */
+        toInt: function( str ) {
+            return parseInt( str )
         }
     };
 
@@ -76,6 +86,15 @@
      * object.val: {String}
      */
     Factory.prototype.checkAt10 = function() {
+
+        var part1 = null
+          , part2 = null
+          , tc = this.tc;
+          , toInt = this.helpers.toInt
+          
+          part1 = tc[ 0 ] + tc[ 2 ] + tc[ 4 ] + tc[ 6 ] + tc[ 8 ];
+          console.log( part1 )
+
         return {
             fail: false,
             val: null
