@@ -18,15 +18,38 @@
     };
 
     
+    /**
+     * @method charAt: returns char from desired
+     * index in string
+     */
     Factory.prototype.helpers = {
 
         /**
          * 
          * @desc
-         * @param index {number}
+         * @param index {Nmber}
          */
         charAt: function( index ) {
             return ( Factory.prototype.tc + "" ).charAt( index );
+        },
+
+        
+        /**
+         * 
+         * @desc
+         * @param str {String}
+         */
+        toInt: function( str ) {
+            return parseInt( str )
+        },
+
+        /**
+         * 
+         * @desc
+         * @param num {Number}
+         */
+        toStr: function( num ) {
+            return parseInt( str )
         }
     };
 
@@ -57,7 +80,7 @@
 
         // Check eleventh char
         // #
-        charAt11 = this.checkAt11( charAt10 );
+        charAt11 = this.checkAt11( charAt10.val );
         
         if( !charAt11 )
             return false;
@@ -69,12 +92,27 @@
      * @desc
      * @returns {object}
      * object.fail: {Boolean}
-     * object.char: {String}
+     * object.val: {String}
      */
     Factory.prototype.checkAt10 = function() {
+
+        var part1 = null
+          , part2 = null
+          , temp = null
+          , fail = false
+          , tc = this.tc
+          , toInt = this.helpers.toInt
+          , toStr = this.helpers.toStr;
+          
+          part1 = ( toInt( tc[ 0 ] ) + toInt( tc[ 2 ] ) + toInt( tc[ 4 ] ) + toInt( tc[ 6 ] ) + toInt( tc[ 8 ] ) ) * 7;
+          part2 = toInt( tc[ 1 ] ) + toInt( tc[ 3 ] ) + toInt( tc[ 5 ] ) + toInt( tc[ 7 ] ) ;
+          
+          temp = toStr( ( part1 - part2 ) % 10 );
+          console.log( temp , tc[ 9 ])
+
         return {
-            fail: false,
-            char: null
+            fail: fail,
+            val: temp
         }
     };
 
