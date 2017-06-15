@@ -27,7 +27,7 @@
         /**
          * 
          * @desc
-         * @param index {number}
+         * @param index {Nmber}
          */
         charAt: function( index ) {
             return ( Factory.prototype.tc + "" ).charAt( index );
@@ -37,9 +37,18 @@
         /**
          * 
          * @desc
-         * @param index {String}
+         * @param str {String}
          */
         toInt: function( str ) {
+            return parseInt( str )
+        },
+
+        /**
+         * 
+         * @desc
+         * @param num {Number}
+         */
+        toStr: function( num ) {
             return parseInt( str )
         }
     };
@@ -89,15 +98,21 @@
 
         var part1 = null
           , part2 = null
-          , tc = this.tc;
+          , temp = null
+          , fail = false
+          , tc = this.tc
           , toInt = this.helpers.toInt
+          , toStr = this.helpers.toStr;
           
-          part1 = tc[ 0 ] + tc[ 2 ] + tc[ 4 ] + tc[ 6 ] + tc[ 8 ];
-          console.log( part1 )
+          part1 = ( toInt( tc[ 0 ] ) + toInt( tc[ 2 ] ) + toInt( tc[ 4 ] ) + toInt( tc[ 6 ] ) + toInt( tc[ 8 ] ) ) * 7;
+          part2 = toInt( tc[ 1 ] ) + toInt( tc[ 3 ] ) + toInt( tc[ 5 ] ) + toInt( tc[ 7 ] ) ;
+          
+          temp = toStr( ( part1 - part2 ) % 10 );
+          console.log( temp , tc[ 9 ])
 
         return {
-            fail: false,
-            val: null
+            fail: fail,
+            val: temp
         }
     };
 
