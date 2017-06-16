@@ -61,19 +61,26 @@
          */
         takeChars: function( str, startIndex, increaseAmount, iterationCount ) {
 
-            var charlist = [];
+            var charlist = []
+              , desIndex = startIndex
+              , firstchar = true
+              , temp = null;
 
-            // Take desired chars from str
-            // #
-            for( var i = startIndex; i <= iterationCount - 1; i++ ) {
-                
-                charlist.push( str[ i + increaseAmount ] );
+
+            for( var i = 0, j = startIndex; i <= str.length - 1; i++, j = j + increaseAmount ) {
+
+                if( charlist.length == iterationCount ) break;
+
+                // Store char
+                // #
+                charlist.push( str[ j ] );
             }
 
-            return charlist
+            return charlist;
         },
 
         /**
+         * 
          * @desc
          * @param {Array:Number}
          */
@@ -81,7 +88,7 @@
             
             var self = this;
 
-            // It returns sum of Array
+            // It returns sum of target array
             // #
             return arr.reduce( function( a, b ) {
                 return self.toInt( a ) + self.toInt( b )
@@ -137,18 +144,17 @@
           , fail = false
           , tc = this.tc
           , toInt = this.helpers.toInt
-          , toStr = this.helpers.toStr
-          , arraySum = this.helpers.arraySum
-          , takeChars = this.helpers.takeChars;
+          , toStr = this.helpers.toStr;
           
 
-          part1 = this.helpers.arraySum( this.helpers.takeChars( tc, 0, 2, 5 ) ) * 7;
-          part2 = this.helpers.arraySum( this.helpers.takeChars( tc, 1, 2, 4 ) ) ;
-          
+          part1 = this.helpers.arraySum( 
+                  this.helpers.takeChars( tc, 0, 2, 5 ) ) * 7;
 
+          part2 = this.helpers.arraySum( 
+                  this.helpers.takeChars( tc, 1, 2, 4 ) ) ;
+          
           temp = toStr( ( part1 - part2 ) % 10 );
 
-          console.log( this.helpers.takeChars( tc, 1, 2, 4 ) )
 
           if( temp != tc[ 9 ])
             fail = true;
