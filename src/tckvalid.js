@@ -67,8 +67,8 @@
 
         // Check first number for zero
         // #
-        if( charAt( 0 ) == "0" )
-            valid = false;
+        if( charAt( 0 ) == "0" || this.tc.length != 11 )
+            return false;
 
         // Get tenth char from tck
         // and check tenth 
