@@ -70,8 +70,7 @@
         if( charAt( 0 ) == "0" || this.tc.length != 11 )
             return false;
 
-        // Get tenth char from tck
-        // and check tenth 
+        // Look tenth char from tck
         // #
         charAt10 = this.checkAt10();
        
