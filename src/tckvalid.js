@@ -27,7 +27,7 @@
         /**
          * 
          * @desc
-         * @param index {Nmber}
+         * @param index {Number}
          */
         charAt: function( index ) {
             return ( Factory.prototype.tc + "" ).charAt( index );
@@ -49,7 +49,7 @@
          * @param num {Number}
          */
         toStr: function( num ) {
-            return parseInt( str )
+            return "" + num;
         }
     };
 
@@ -108,6 +108,10 @@
           part2 = toInt( tc[ 1 ] ) + toInt( tc[ 3 ] ) + toInt( tc[ 5 ] ) + toInt( tc[ 7 ] ) ;
           
           temp = toStr( ( part1 - part2 ) % 10 );
+
+          if( temp != tc[ 9 ])
+            fail = true;
+
           console.log( temp , tc[ 9 ])
 
         return {
@@ -118,10 +122,13 @@
 
     /**
      * @desc
-     * @returns
+     * @param charAt10 {String}
+     * @returns {Boolean}
      */
-    Factory.prototype.checkAt11 = function() {
-        return true
+    Factory.prototype.checkAt11 = function( charAt10 ) {
+        console.log( charAt10 )
+
+        return true;
     };
 
     /**
