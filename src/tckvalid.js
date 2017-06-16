@@ -112,8 +112,6 @@
           if( temp != tc[ 9 ])
             fail = true;
 
-          console.log( temp , tc[ 9 ])
-
         return {
             fail: fail,
             val: temp
@@ -126,9 +124,20 @@
      * @returns {Boolean}
      */
     Factory.prototype.checkAt11 = function( charAt10 ) {
-        console.log( charAt10 )
+        
+        var tc = this.tc
+          , temp = null
+          , success = true
+          , toInt = this.helpers.toInt
+          , toStr = this.helpers.toStr;
 
-        return true;
+        temp = toStr( ( toInt( tc[ 0 ] ) + toInt( tc[ 1 ] ) + toInt( tc[ 2 ] ) + toInt( tc[ 3 ] ) + toInt( tc[ 4 ] ) +
+        toInt( tc[ 5 ] ) + toInt( tc[ 6 ] ) + toInt( tc[ 7 ] ) + toInt( tc[ 8 ] ) + toInt( charAt10 ) ) % 10 );
+
+        if( temp != tc[ 10 ] )
+            success = false;
+
+        return success;
     };
 
     /**
