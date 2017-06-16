@@ -27,17 +27,16 @@
         /**
          * 
          * @desc
-         * @param index {Number}
+         * @param {Number} index 
          */
         charAt: function( index ) {
             return ( Factory.prototype.tc + "" ).charAt( index );
         },
 
-        
         /**
          * 
          * @desc
-         * @param str {String}
+         * @param {String} str 
          */
         toInt: function( str ) {
             return parseInt( str )
@@ -46,10 +45,54 @@
         /**
          * 
          * @desc
-         * @param num {Number}
+         * @param {Number} num 
          */
         toStr: function( num ) {
             return "" + num;
+        },
+
+        /**
+         * @desc
+         * @param {String} str
+         * @param {Number} startIndex 
+         * @param {Number} increaseAmount 
+         * @param {Number} iterationCount 
+         * @returns {String}
+         */
+        takeChars: function( str, startIndex, increaseAmount, iterationCount ) {
+
+            var charlist = []
+              , desIndex = startIndex
+              , firstchar = true
+              , temp = null;
+
+
+            for( var i = 0, j = startIndex; i <= str.length - 1; i++, j = j + increaseAmount ) {
+
+                if( charlist.length == iterationCount ) break;
+
+                // Store char
+                // #
+                charlist.push( str[ j ] );
+            }
+
+            return charlist;
+        },
+
+        /**
+         * 
+         * @desc
+         * @param {Array:Number}
+         */
+        arraySum: function( arr ) {
+            
+            var self = this;
+
+            // It returns sum of target array
+            // #
+            return arr.reduce( function( a, b ) {
+                return self.toInt( a ) + self.toInt( b )
+            });
         }
     };
 
@@ -70,8 +113,7 @@
         if( charAt( 0 ) == "0" || this.tc.length != 11 )
             return false;
 
-        // Get tenth char from tck
-        // and check tenth 
+        // Look tenth char from tck
         // #
         charAt10 = this.checkAt10();
        
@@ -91,8 +133,8 @@
     /**
      * @desc
      * @returns {object}
-     * object.fail: {Boolean}
-     * object.val: {String}
+     * {Boolean} object.fail
+     * {String}  object.val
      */
     Factory.prototype.checkAt10 = function() {
 
@@ -104,10 +146,15 @@
           , toInt = this.helpers.toInt
           , toStr = this.helpers.toStr;
           
-          part1 = ( toInt( tc[ 0 ] ) + toInt( tc[ 2 ] ) + toInt( tc[ 4 ] ) + toInt( tc[ 6 ] ) + toInt( tc[ 8 ] ) ) * 7;
-          part2 = toInt( tc[ 1 ] ) + toInt( tc[ 3 ] ) + toInt( tc[ 5 ] ) + toInt( tc[ 7 ] ) ;
+
+          part1 = this.helpers.arraySum( 
+                  this.helpers.takeChars( tc, 0, 2, 5 ) ) * 7;
+
+          part2 = this.helpers.arraySum( 
+                  this.helpers.takeChars( tc, 1, 2, 4 ) ) ;
           
           temp = toStr( ( part1 - part2 ) % 10 );
+
 
           if( temp != tc[ 9 ])
             fail = true;
@@ -120,7 +167,7 @@
 
     /**
      * @desc
-     * @param charAt10 {String}
+     * @param {String} charAt10 
      * @returns {Boolean}
      */
     Factory.prototype.checkAt11 = function( charAt10 ) {
