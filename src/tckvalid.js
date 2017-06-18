@@ -178,9 +178,18 @@
           , toInt = this.helpers.toInt
           , toStr = this.helpers.toStr;
 
-        temp = toStr( ( toInt( tc[ 0 ] ) + toInt( tc[ 1 ] ) + toInt( tc[ 2 ] ) + toInt( tc[ 3 ] ) + toInt( tc[ 4 ] ) +
-        toInt( tc[ 5 ] ) + toInt( tc[ 6 ] ) + toInt( tc[ 7 ] ) + toInt( tc[ 8 ] ) + toInt( charAt10 ) ) % 10 );
+        // Get first 10 letter from tc
+        // #
+        temp = this.helpers.takeChars( tc, 0, 1, 9 );
+        
+        // Append calculated letter 
+        // #
+        temp.push( charAt10 );
 
+        // Get eleventh char
+        // #
+        temp = this.helpers.arraySum( temp ) % 10;
+        
         if( temp != tc[ 10 ] )
             success = false;
 
