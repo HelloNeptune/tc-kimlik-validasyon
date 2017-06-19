@@ -207,7 +207,12 @@
     // #
     String.prototype.tcValid = Proto_tcValid;
 
-})( window, String, undefined );
+    // If we're running under Node, export
+    // for testing purposes
+    if( typeof exports !== 'undefined' )
+        module.exports = Factory;
+
+})( typeof window != 'undefined' ? window : 'window', String, undefined );
 
 
 
